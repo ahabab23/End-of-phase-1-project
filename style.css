@@ -57,6 +57,7 @@ input {
     background: transparent;
     border: 0;
     outline: 0;
+    
 
 }
 .fa-solid{
@@ -75,9 +76,12 @@ input {
 }
 .countries{
     display: inline-block;
+    grid-template-columns: 3;
+    justify-content: space-around;
     font-size: 2rem;
     transition: opacity 1s;
     text-align: center;
+    margin: auto;
 }
 .country{
     background-color: #fff;
@@ -86,8 +90,9 @@ input {
     width: 30rem;
     border-radius: 0.7rem;
     margin: 3rem ;
+    justify-content: space-between;
+    transition: all 1s ease-in-out;
     display: inline-block;
-    transition: all 15s ease-in-out;
     
 }
 .country:hover{
@@ -123,4 +128,16 @@ input {
     margin-right: 2rem;
     font-size: 2.4rem;
 }
-
+.country-info{
+    position: relative;
+    text-align: left;
+    display: inline-block;
+}
+s
+.properties{
+    display: inline-block;
+    padding: 1rem;
+}
+table{
+    display: inline-block;
+}
