@@ -76,8 +76,6 @@ input {
 }
 .countries{
     display: inline-block;
-    grid-template-columns: 3;
-    justify-content: space-around;
     font-size: 2rem;
     transition: opacity 1s;
     text-align: center;
@@ -90,9 +88,8 @@ input {
     width: 30rem;
     border-radius: 0.7rem;
     margin: 3rem ;
-    justify-content: space-between;
-    transition: all 1s ease-in-out;
     display: inline-block;
+    transition: all 2s ease-in-out;
     
 }
 .country:hover{
@@ -128,16 +125,50 @@ input {
     margin-right: 2rem;
     font-size: 2.4rem;
 }
+
 .country-info{
-    position: relative;
-    text-align: left;
-    display: inline-block;
+    background-color: #e9f5f9;
+    margin: 10rem;
+    padding: 3rem 5rem;
+    border-radius: 10px;
+    box-shadow: 0 5rem 8rem 4rem 4rem rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: none;
 }
-s
+.table-data{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin:3rem;
+
+}
 .properties{
-    display: inline-block;
-    padding: 1rem;
+    text-align: left;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    border-radius: 8px;
+    border: 2px solid #becace;
+    box-shadow: 0 5rem 8rem 4rem 4rem rgba(0, 0, 0, 0.5);
+    padding: 3rem 3rem;
+    width: 45%;
+
+
 }
+table, th, td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+  }
 table{
-    display: inline-block;
+    width: 100%;
+}
+th{
+    margin-left: .5rem;
+}
+td{
+    text-align: center;
+}
+.table-flag{
+    width: 50px;
+    height: 50px;
+    text-align: center;
 }
