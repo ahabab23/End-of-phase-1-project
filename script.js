@@ -1,6 +1,7 @@
 const countriesUrl = "https://restcountries.com/v3.1/all";
 document.addEventListener("DOMContentLoaded", function () {
     fetchData()
+    
 
 })
 
@@ -33,30 +34,31 @@ function countryInfo(countries) {
         </div>
         `;
         countriesInfo.insertAdjacentHTML('beforeend', html);
-
-
     });
 
 }
 function filterCountries() {
-
     // Add event listener to search input
     const searchInput = document.getElementById('search-input');
-    const countryList = document.querySelector('.countries');
     searchInput.addEventListener('input', () => {
-        const filter = searchInput.value.toLowerCase();
-        countryList.querySelectorAll(".country_name").forEach(listItem => {
-            const countryName = listItem.textContent.toLowerCase();
-            listItem.style.display = countryName.includes(filter) ? 'block' : 'none';
+        let value = searchInput.value.toLowerCase();
+        // Filter countries based on search input
+        const countries = document.querySelectorAll('.country');
+        countries.forEach(country => {
+            const countryName = country.querySelector('.country_name').textContent.toLowerCase();
+            if (countryName.includes(value)) {
+                country.style.display = 'inline-block';
+              
+            } else {
+                country.style.display = 'none';
+            }
         });
-    })
-
-
-
+    });
 }
 
 
 
+
+
+
 filterCountries()
-
-
