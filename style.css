@@ -1,0 +1,126 @@
+*{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: inherit;
+}
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+  }
+
+body{
+    font-family: system-ui;
+    background-color: #f7f7f7;
+    color: #555;
+    margin: 10rem 20rem;
+
+}
+header{
+    margin-bottom: 5rem;
+}
+
+nav{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.searchBar {
+    background-color: #eee;
+    border-radius: 3px;
+    /* padding: 9px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+.row{
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 50%;
+
+}
+input {
+    flex: 1;
+    height: 3rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    color: inherit;
+    font-size: 2rem;
+
+}
+.searchBtn{
+    background: transparent;
+    border: 0;
+    outline: 0;
+
+}
+.fa-solid{
+    width: 2rem;
+    font-size: 22px;
+    cursor: pointer;
+}
+::placeholder{
+    color: #555;
+}
+
+.container{
+    display: flex;
+    flex-grow: column;
+    align-items: center;
+}
+.countries{
+    display: inline-block;
+    font-size: 2rem;
+    transition: opacity 1s;
+    text-align: center;
+}
+.country{
+    background-color: #fff;
+    box-shadow: 0 2rem 5rem 1rem 1rem rgba(0, 0, 0, 0.1);
+    font-size: 1.8rem;
+    width: 30rem;
+    border-radius: 0.7rem;
+    margin: 3rem ;
+    display: inline-block;
+    transition: all 15s ease-in-out;
+    
+}
+.country:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 2s ease-in-out;
+
+}
+.country_img{
+    width: 30rem;
+    height: 17rem;
+    object-fit: cover;
+    background-color: #eee;
+    border-top-left-radius: 0.7rem;
+    border-top-right-radius: 0.7rem;
+
+}
+.country_data{
+    padding: 2.5rem,3.75rem 3rem 3.75rem;
+    text-align: left;
+}
+.country_name{
+    font-size: 2.7rem;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    color: #888;
+}
+.country_row:not(:last-child){
+    margin-bottom: 1rem;
+}
+.country__row span {
+    display: inline-block;
+    margin-right: 2rem;
+    font-size: 2.4rem;
+}
+
