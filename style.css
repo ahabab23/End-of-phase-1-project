@@ -83,7 +83,7 @@ input {
 }
 .country{
     background-color: #fff;
-    box-shadow: 0 2rem 5rem 1rem 1rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5rem 8rem 4rem 4rem rgba(0, 0, 0, 0.8);
     font-size: 1.8rem;
     width: 30rem;
     border-radius: 0.7rem;
@@ -192,4 +192,16 @@ td{
 .goBackBtn:active{
     background-color: #555;
     color: rgb(37, 150, 190);
+}
+#region{
+    background-color: inherit;
+    font-family: inherit;
+    color: inherit;
+    padding: 1rem 3rem;
+    font-size: 2rem;
+    border:2px solid gray;
+    border-radius: 10px;
+}
+#region:focus{
+    outline:none;
 }
