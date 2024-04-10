@@ -3,9 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     fetchData()
     filterCountries()
-
-
-
+    filterCountriesByRegion()
 
 })
 
@@ -199,4 +197,42 @@ function displayCountryInfo(country) {
     })
 
 
+}
+function filterCountries() {
+    // Add event listener to search input
+    const searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('input', () => {
+        let value = searchInput.value.toLowerCase();
+        // Filter countries based on search input
+        const countries = document.querySelectorAll('.country');
+        countries.forEach(country => {
+            const countryName = country.querySelector('.country_name').textContent.toLowerCase();
+            if (countryName.includes(value)) {
+                country.style.display = 'inline-block';
+
+            } else {
+                country.style.display = 'none';
+            }
+        });
+    });
+}
+function filterCountriesByRegion(){
+    const options=document.querySelector("#region")
+    options.addEventListener('change',function(e){
+        let value=e.target.value.toLowerCase()
+        const countries=document.querySelectorAll(".country")
+        countries.forEach(country=>{
+            const countryRegion=country.querySelector(".country_region").textContent.toLowerCase()
+            if(countryRegion.includes(value)){
+                country.style.display = 'inline-block';
+
+            }else{
+                country.style.display = 'none';
+
+            }
+        })
+         
+    })
+
+   
 }
