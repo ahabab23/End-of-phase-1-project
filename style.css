@@ -128,7 +128,6 @@ input {
 
 .country-info{
     background-color: #e9f5f9;
-    margin: 10rem;
     padding: 3rem 5rem;
     border-radius: 10px;
     box-shadow: 0 5rem 8rem 4rem 4rem rgba(0, 0, 0, 0.1);
@@ -139,7 +138,7 @@ input {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin:3rem;
+    margin: 3rem 0;
 
 }
 .properties{
@@ -150,7 +149,8 @@ input {
     border: 2px solid #becace;
     box-shadow: 0 5rem 8rem 4rem 4rem rgba(0, 0, 0, 0.5);
     padding: 3rem 3rem;
-    width: 45%;
+    width: 100%;
+    margin: 0 1rem;
 
 
 }
@@ -160,6 +160,7 @@ table, th, td {
   }
 table{
     width: 100%;
+
 }
 th{
     margin-left: .5rem;
@@ -168,7 +169,8 @@ td{
     text-align: center;
 }
 .table-flag{
-    width: 50px;
-    height: 50px;
+    width: 200px;
+    height: 100px;
     text-align: center;
+    margin-top: 1rem ;
 }
