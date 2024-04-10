@@ -2,8 +2,10 @@ const countriesUrl = "https://restcountries.com/v3.1/all";
 document.addEventListener("DOMContentLoaded", function () {
 
     fetchData()
-     filterCountries()
-    
+    filterCountries()
+
+
+
 
 })
 
@@ -35,7 +37,15 @@ function countryInfo(countries) {
           </div>
         </div>
         `;
+
         countriesInfo.insertAdjacentHTML('beforeend', html);
+        // Add click event listener to each country element
+        const countryElement = countriesInfo.lastElementChild;
+        countryElement.addEventListener('click', () => {
+        countriesInfo.style.display = 'none';
+            displayCountryInfo(country);
+        });
+
     });
 
 }
@@ -50,138 +60,135 @@ function filterCountries() {
             const countryName = country.querySelector('.country_name').textContent.toLowerCase();
             if (countryName.includes(value)) {
                 country.style.display = 'inline-block';
-              
+
             } else {
                 country.style.display = 'none';
             }
         });
     });
 }
-
-
-
-const countriesInfo = document.querySelector(".countries")
-countriesInfo.addEventListener('click',function countryClick(countries){
-    const container=document.querySelector(".container")
-    const countriesData = document.querySelector(".country-info")
-    container.style.display='none'
-    countriesData.style.display='block'
-
-    // countries.forEach(country => {
-      
-    //     const html = `
-    //     <<h2>${country.name.common}}</h2>
-    //     <img class="table-flag" src="${country.flags.svg}" alt="country flag">
-    //         <div class="table-data">
-    //             <div class="properties">
-    //                 <h3>NAMES</h3>
-    //                 <table>
-    //                     <tr>
-    //                         <th>Common</th>
-    //                         <td>.....</td>
-                            
-    //                     </tr>
-    //                     <tr>
-    //                         <th>Official</th>
-    //                         <td>......</td>
-
-    //                     </tr>
-    //                     <tr>
-    //                         <th>Common(Native)</th>
-    //                         <td>.......</td>
-
-    //                     </tr>
-    //                     <tr>
-    //                         <th>Official(Native)</th>
-    //                         <td>.......</td>
-
-    //                     </tr>
-    //                     <tr>
-    //                         <th>Alternative Spellings</th>
-    //                         <td>.......</td>
-    //                     </tr>
-    //                 </table>
-    //             </div>
-    //             <div class="properties">
-    //                 <h3>LANGUAGES</h3>
-    //                 <table>
-    //                     <tr>
-    //                         <th>Native Language</th>
-    //                         <td>...........</td>
-    //                     </tr>
-  
-    //                     <tr class="lang">
-                            
-    //                     </tr> 
-    //                 </table>
-
-
-    //             </div>
-    //         </div>
-    //         <div class="table-data">
-    //             <div class="properties">
-    //                 <h3>CODES</h3>
-    //                 <table>
-    //                     <tr>
-    //                         <th>ISO 3166-1 alpha-2</th>
-    //                         <td>......</td>
-    //                     </tr>
-    //                     <tr>
-    //                         <th>ISO 3166-1 alpha-3</th>
-    //                         <td>.......</td>
-    //                     </tr>
-    //                     <tr>
-    //                         <th>ISO 3166-1 numeric</th>
-    //                         <td>......</td>
-    //                     </tr>
-    //                     <tr>
-    //                         <th>International calling code</th>
-    //                         <td>.......</td>
-    //                     </tr>
-    //                     <tr>
-    //                         <th>ISO 4217 currency code</th>
-    //                         <td>.......</td>
-    //                     </tr>
-    //                     <tr>
-    //                         <th>Top level domain</th>
-    //                         <td>.........</td>
-    //                     </tr>
-    //                 </table>
+function displayCountryInfo(country) {
+    const countryInfoSection = document.querySelector(".country-info");
+    
+    // Update the country info section with detailed data
+    countryInfoSection.innerHTML = `
+        <h2>${country.name.common}</h2>
+        <img class="table-flag" src="${country.flags.svg}" alt="country flag">
+        <div class="table-data">
+            <div class="properties">
+                <h3>Names</h3>
+                <table>
+                    <tr>
+                        <th>Common</th>
+                        <td>${country.name.common}</td>
+                    </tr>
+                    <tr>
+                        <th>Official</th>
+                        <td>${country.name.official}</td>
+                    </tr>
+                    <tr>
+                          <th>Common(Native)</th>
+                           <td>${country.name.nativeName.common}</td>
+    
+                     </tr>
+                     <tr>
+                            <th>Official(Native)</th>
+                            <td>${country.name.nativeName.official}</td>
+    
+                    </tr>
+                    <tr>
+                             <th>Alternative Spellings</th>
+                             <td>${country.altSpellings.join(", ")}</td>
+                    </tr>
                     
-    //             </div>
-    //             <div class="properties">
-    //                 <h3>GEOGRAPHY</h3>
-    //                 <table>
-    //                     <tr>
-    //                         <th>Region</th>
-    //                         <td>.......</td>
-    //                     </tr>
-    //                     <tr>
-    //                         <th>Capital</th>
-    //                         <td>.....</td>
-    //                     </tr>
-    //                     <tr>
-    //                         <th>Demonym</th>
-    //                         <td>.......</td>
-    //                     </tr>
-    //                     <tr>
-    //                         <th>Lat/Lng</th>
-    //                         <td>.........</td>
-    //                     </tr>
-    //                     <tr>
-    //                         <th>Area</th>
-    //                         <td>.......</td>
-    //                     </tr>
-    //                     <tr>
-    //                         <th>Land borders</th>
-    //                         <th>...........</th>
-    //                     </tr>
-    //                 </table>
-    //             </div>
-    //         </div>
+                </table>
+            </div>
+            <div class="properties">
+            <h3>LANGUAGES</h3>
+            <table>
+                <tr>
+                    <th>Native Language</th>
+                    <td>${Object.values(country.languages)[0]}</td>
+                </tr>
+
+                <tr class="lang">
+                         <th>Languages</th>
+                         <td>${Object.values(country.languages).join(', ')}</td>
+                </tr>
+                   
+                    
+                </tr> 
+            </table>
+
+             </div>
+             <div class="properties">
+                            <h3>CODES</h3>
+                            <table>
+                                <tr>
+                                    <th>ISO 3166-1 alpha-2</th>
+                                    <td>${country.cca2}</td>
+                                </tr>
+                                <tr>
+                                    <th>ISO 3166-1 alpha-3</th>
+                                    <td>${country.cca3}</td>
+                                </tr>
+                                <tr>
+                                    <th>ISO 3166-1 numeric</th>
+                                    <td>${country.ccn3}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>ISO 4217 currency code</th>
+                                    <td>${Object.keys(country.currencies)}</td>
+                                </tr>
+                                <tr>
+                                    <th>Top level domain</th>
+                                    <td>${country.tld}</td>
+                                </tr>
+                            </table>
+                            
+                        </div>
+                        <div class="properties">
+                        <h3>GEOGRAPHY</h3>
+                        <table>
+                            <tr>
+                                <th>Region</th>
+                                <td>${country.region}</td>
+                            </tr>
+                            <tr>
+                            <th>Subregion</th>
+                            <td>${country.subregion}</td>
+                             </tr>
+                            <tr>
+                                <th>Capital</th>
+                                <td>${country.capital}</td>
+                            </tr>
+                            <tr>
+                                <th>Demonym</th>
+                                <td>${Object.keys(country.demonyms)[0]}</td>
+                            </tr>
+                            <tr>
+                                <th>Lat/Lng</th>
+                                <td>${country.latlng}</td>
+                            </tr>
+                            <tr>
+                                <th>Area</th>
+                                <td>${country.area} Km2</td>
+                            </tr>
+                            <tr>
+                                <th>Land borders</th>
+                                <th>${country.borders}</th>
+                            </tr>
+                        </table>
+                    </div>
 
 
-    //     `;
-    //     // countriesData.insertAdjacentHTML('beforeend', html);
-    // });
-})
+        </div>
+    `;
+
+    // Show the country info section
+    countryInfoSection.style.display = 'block';
+    document.querySelector(".properties").style.display='block'
+
+
+}
