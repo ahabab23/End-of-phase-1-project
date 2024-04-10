@@ -72,7 +72,8 @@ function displayCountryInfo(country) {
     
     // Update the country info section with detailed data
     countryInfoSection.innerHTML = `
-        <h2>${country.name.common}</h2>
+     <button class="goBackBtn">Go back</button>
+       <h2>${country.name.common}</h2>
         <img class="table-flag" src="${country.flags.svg}" alt="country flag">
         <div class="table-data">
             <div class="properties">
@@ -188,7 +189,14 @@ function displayCountryInfo(country) {
 
     // Show the country info section
     countryInfoSection.style.display = 'block';
-    document.querySelector(".properties").style.display='block'
+    
+    const goBackBtn=document.querySelector(".goBackBtn")
+    const countriesInfo = document.querySelector(".countries")
+    goBackBtn.addEventListener("click",function(){
+        countryInfoSection.style.display = 'none';
+        countriesInfo.style.display = 'inline-block';
+        
+    })
 
 
 }
