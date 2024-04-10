@@ -133,6 +133,7 @@ input {
     box-shadow: 0 5rem 8rem 4rem 4rem rgba(0, 0, 0, 0.1);
     text-align: center;
     display: none;
+    position: relative;
 }
 .table-data{
     display: flex;
@@ -173,4 +174,22 @@ td{
     height: 100px;
     text-align: center;
     margin-top: 1rem ;
+}
+.goBackBtn{
+    border: none;
+    text-align: left;
+    background-color:rgb(37, 150, 190) ;
+    color: inherit;
+    padding: 2rem 3rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 2rem;
+    font-size: 2rem;
+    border-radius: 10px;
+}   
+.goBackBtn:hover,
+.goBackBtn:active{
+    background-color: #555;
+    color: rgb(37, 150, 190);
 }
