@@ -14,13 +14,15 @@ function fetchData() {
             return response.json();
         }).then((data) => {
             countryInfo(data);
-
         })
 
 }
 function countryInfo(countries) {
     countries.forEach(country => {
         const countriesInfo = document.querySelector(".countries")
+        const language = country.languages ? Object.values(country.languages)[0] : 'N/A';
+        const currency = country.currencies ? Object.values(country.currencies)[0].name : 'N/A';
+
         const html = `
         <div class="country">
           <img class="country_img" src="${country.flags.svg}" />
@@ -30,11 +32,12 @@ function countryInfo(countries) {
             <p class="country_row"><span>👫</span>${(
                 +country.population / 1000000
             ).toFixed(1)} M people</p>
-            <p class="country_row"><span>🗣️</span>${Object.values(country.languages)[0]}</p>
-            <p class="country_row"><span>💰</span>${Object.values(country.currencies)[0].name}</p>
+            <p class="country_row"><span>🗣️</span>${language}</p>
+            <p class="country_row"><span>💰</span>${currency}</p>
           </div>
         </div>
         `;
+        
 
         countriesInfo.insertAdjacentHTML('beforeend', html);
         // Add click event listener to each country element
@@ -69,6 +72,8 @@ function displayCountryInfo(country) {
     const countryInfoSection = document.querySelector(".country-info");
     
     // Update the country info section with detailed data
+    const language = country.languages ? Object.values(country.languages)[0] : 'N/A';
+   
     countryInfoSection.innerHTML = `
      <button class="goBackBtn">Go back</button>
        <h2>${country.name.common}</h2>
@@ -87,12 +92,12 @@ function displayCountryInfo(country) {
                     </tr>
                     <tr>
                           <th>Common(Native)</th>
-                           <td>${country.name.nativeName.common}</td>
+                           <td>${country.name.nativeName[Object.keys(country.name.nativeName)[0]].common}</td>
     
                      </tr>
                      <tr>
                             <th>Official(Native)</th>
-                            <td>${country.name.nativeName.official}</td>
+                            <td>${country.name.nativeName[Object.keys(country.name.nativeName)[0]].official}</td>
     
                     </tr>
                     <tr>
@@ -107,7 +112,7 @@ function displayCountryInfo(country) {
             <table>
                 <tr>
                     <th>Native Language</th>
-                    <td>${Object.values(country.languages)[0]}</td>
+                    <td>${language}</td>
                 </tr>
 
                 <tr class="lang">
