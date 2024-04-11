@@ -14,7 +14,7 @@ body{
     font-family: system-ui;
     background-color: #f7f7f7;
     color: #555;
-    margin: 10rem 20rem;
+    margin: 0rem 20rem;
 
 }
 header{
@@ -25,6 +25,7 @@ nav{
     display:flex;
     align-items: center;
     justify-content: space-around;
+    margin: 10rem 0;
 }
 .searchBar {
     background-color: #eee;
@@ -134,12 +135,14 @@ input {
     text-align: center;
     display: none;
     position: relative;
+    margin-top: 3rem;
+    
 }
 .table-data{
-    display: flex;
+    display:block;
     flex-direction: row;
     justify-content: space-around;
-    margin: 3rem 0;
+    margin: 5rem 3rem;
 
 }
 .properties{
@@ -150,8 +153,9 @@ input {
     border: 2px solid #becace;
     box-shadow: 0 5rem 8rem 4rem 4rem rgba(0, 0, 0, 0.5);
     padding: 3rem 3rem;
-    width: 100%;
-    margin: 0 1rem;
+    width: 40%;
+    margin: 1rem 2rem;
+    display:inline-block;
 
 
 }
