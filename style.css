@@ -26,6 +26,13 @@ nav{
     align-items: center;
     justify-content: space-around;
     margin: 10rem 0;
+    transform: scale(1.1);
+    transition: all 8s ease-in-out;
+}
+nav h2{
+    color: #2596be;
+    font-weight: bold;
+    font-size: 2rem;
 }
 
 .searchBar {
@@ -35,6 +42,7 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    
     
 }
 .row{
@@ -53,6 +61,7 @@ input {
     font-family: inherit;
     color: inherit;
     font-size: 2rem;
+    cursor: pointer;
 
 }
 .searchBtn{
@@ -91,7 +100,7 @@ input {
     border-radius: 0.7rem;
     margin: 3rem ;
     display: inline-block;
-    transition: all 2s ease-in-out;
+    transition: all 4s ease-in-out;
     
 }
 .country:hover{
@@ -206,6 +215,7 @@ td{
     font-size: 2rem;
     border:2px solid gray;
     border-radius: 10px;
+    cursor: pointer;
 
 }
 #region:focus{
@@ -215,6 +225,7 @@ option{
     background-color: #becace;
     border:1px solid #becace;
     border-radius: 8px;
+    cursor: pointer;
 }
 option:focus{
     outline: none;
