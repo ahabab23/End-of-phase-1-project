@@ -27,6 +27,7 @@ nav{
     justify-content: space-around;
     margin: 10rem 0;
 }
+
 .searchBar {
     background-color: #eee;
     border-radius: 3px;
@@ -205,7 +206,16 @@ td{
     font-size: 2rem;
     border:2px solid gray;
     border-radius: 10px;
+
 }
 #region:focus{
     outline:none;
+}
+option{
+    background-color: #becace;
+    border:1px solid #becace;
+    border-radius: 8px;
+}
+option:focus{
+    outline: none;
 }
