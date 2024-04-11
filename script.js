@@ -183,7 +183,7 @@ function displayCountryInfo(country) {
                             </tr>
                             <tr>
                                 <th>Demonym</th>
-                                <td>${Object.keys(country.demonyms)[0]}</td>
+                                <td>${Object.values(country.demonyms.eng)[0]}</td>
                             </tr>
                             <tr>
                                 <th>Lat/Lng</th>
