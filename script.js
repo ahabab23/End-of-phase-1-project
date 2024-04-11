@@ -44,6 +44,7 @@ function countryInfo(countries) {
         const countryElement = countriesInfo.lastElementChild;
         countryElement.addEventListener('click', () => {
         countriesInfo.style.display = 'none';
+        document.querySelector("header").style.display='none'
             displayCountryInfo(country);
         });
 
@@ -197,6 +198,8 @@ function displayCountryInfo(country) {
     const countriesInfo = document.querySelector(".countries")
     goBackBtn.addEventListener("click",function(){
         countryInfoSection.style.display = 'none';
+        document.querySelector("header").style.display='block'
+
         countriesInfo.style.display = 'inline-block';
         
     })
