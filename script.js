@@ -1,22 +1,30 @@
 const countriesUrl = "https://restcountries.com/v3.1/all";
-document.addEventListener("DOMContentLoaded", function () {
 
+document.addEventListener("DOMContentLoaded", function () {
+    //Fetch data from API
     fetchData()
+    // Filter countries from fetched data
     filterCountries()
+    // Further filter countries by region
     filterCountriesByRegion()
 
 })
 
 
+// Function to fetch data from the API
 function fetchData() {
+    // Send a request to the API endpoint
     fetch(countriesUrl)
         .then((response) => {
             return response.json();
         }).then((data) => {
+            // Once the data is parsed, pass it to the countryInfo function
             countryInfo(data);
         })
 
 }
+
+// Display country information
 function countryInfo(countries) {
     countries.forEach(country => {
         const countriesInfo = document.querySelector(".countries")
@@ -51,6 +59,8 @@ function countryInfo(countries) {
     });
 
 }
+
+// Filter countries by search input
 function filterCountries() {
     // Add event listener to search input
     const searchInput = document.getElementById('search-input');
@@ -69,6 +79,9 @@ function filterCountries() {
         });
     });
 }
+
+
+// display more information about a particuler country upon clicking
 function displayCountryInfo(country) {
     const countryInfoSection = document.querySelector(".country-info");
     
@@ -193,7 +206,7 @@ function displayCountryInfo(country) {
 
     // Show the country info section
     countryInfoSection.style.display = 'block';
-    
+    // Adds event listener to go back button
     const goBackBtn=document.querySelector(".goBackBtn")
     const countriesInfo = document.querySelector(".countries")
     goBackBtn.addEventListener("click",function(){
@@ -206,24 +219,8 @@ function displayCountryInfo(country) {
 
 
 }
-function filterCountries() {
-    // Add event listener to search input
-    const searchInput = document.getElementById('search-input');
-    searchInput.addEventListener('input', () => {
-        let value = searchInput.value.toLowerCase();
-        // Filter countries based on search input
-        const countries = document.querySelectorAll('.country');
-        countries.forEach(country => {
-            const countryName = country.querySelector('.country_name').textContent.toLowerCase();
-            if (countryName.includes(value)) {
-                country.style.display = 'inline-block';
 
-            } else {
-                country.style.display = 'none';
-            }
-        });
-    });
-}
+// Filter countries by region
 function filterCountriesByRegion(){
     const options=document.querySelector("#region")
     options.addEventListener('change',function(e){
